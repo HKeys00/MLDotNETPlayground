@@ -1,0 +1,539 @@
+﻿{
+  "Scenario": "Classification",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": true,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": true,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\Harry\\Desktop\\Repos\\MLDotNETPlayground\\MLDotNet\\MLDotNet.Server\\Model\\cleaned.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "Ticket ID",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Customer Name",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Customer Email",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Customer Age",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Customer Gender",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Product Purchased",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Date of Purchase",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Ticket Type",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Ticket Subject",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Ticket Description",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Ticket Status",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Resolution",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Ticket Priority",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Ticket Channel",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "First Response Time",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Time to Resolution",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Customer Satisfaction Rating",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmMulti",
+        "Score": 0.25765741279353394,
+        "RuntimeInSeconds": 8.318,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e9 * e14",
+          "e0": {
+            "OutputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel"
+            ],
+            "InputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "Product Purchased",
+            "OutputColumnName": "Product Purchased"
+          },
+          "e14": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnName": "Date of Purchase",
+            "OutputColumnName": "Date of Purchase"
+          },
+          "e3": {
+            "InputColumnName": "Ticket Subject",
+            "OutputColumnName": "Ticket Subject"
+          },
+          "e4": {
+            "InputColumnName": "Ticket Description",
+            "OutputColumnName": "Ticket Description"
+          },
+          "e5": {
+            "InputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel",
+              "Product Purchased",
+              "Date of Purchase",
+              "Ticket Subject",
+              "Ticket Description"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e6": {
+            "OutputColumnName": "Ticket Priority",
+            "InputColumnName": "Ticket Priority",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e9": {
+            "NumberOfLeaves": 866,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 0.99999977667298645,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 0.99999977667298645,
+            "MaximumBinCountPerFeature": 344,
+            "FeatureFraction": 0.99999999,
+            "L1Regularization": 4.3728814200551396E-10,
+            "L2Regularization": 0.66543152100795111,
+            "LabelColumnName": "Ticket Priority",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsLogisticRegressionOva",
+        "Score": 0.25241500948052409,
+        "RuntimeInSeconds": 4.138,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e10 * e14",
+          "e0": {
+            "OutputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel"
+            ],
+            "InputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "Product Purchased",
+            "OutputColumnName": "Product Purchased"
+          },
+          "e10": {
+            "L1Regularization": 2.3054402,
+            "L2Regularization": 3.0234714,
+            "LabelColumnName": "Ticket Priority",
+            "FeatureColumnName": "Features"
+          },
+          "e14": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnName": "Date of Purchase",
+            "OutputColumnName": "Date of Purchase"
+          },
+          "e3": {
+            "InputColumnName": "Ticket Subject",
+            "OutputColumnName": "Ticket Subject"
+          },
+          "e4": {
+            "InputColumnName": "Ticket Description",
+            "OutputColumnName": "Ticket Description"
+          },
+          "e5": {
+            "InputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel",
+              "Product Purchased",
+              "Date of Purchase",
+              "Ticket Subject",
+              "Ticket Description"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e6": {
+            "OutputColumnName": "Ticket Priority",
+            "InputColumnName": "Ticket Priority",
+            "AddKeyValueAnnotationsAsText": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsLogisticRegressionOva",
+        "Score": 0.25009506241993168,
+        "RuntimeInSeconds": 4.333,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e10 * e14",
+          "e0": {
+            "OutputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel"
+            ],
+            "InputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "Product Purchased",
+            "OutputColumnName": "Product Purchased"
+          },
+          "e10": {
+            "L1Regularization": 14.458065,
+            "L2Regularization": 1.1388961,
+            "LabelColumnName": "Ticket Priority",
+            "FeatureColumnName": "Features"
+          },
+          "e14": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnName": "Date of Purchase",
+            "OutputColumnName": "Date of Purchase"
+          },
+          "e3": {
+            "InputColumnName": "Ticket Subject",
+            "OutputColumnName": "Ticket Subject"
+          },
+          "e4": {
+            "InputColumnName": "Ticket Description",
+            "OutputColumnName": "Ticket Description"
+          },
+          "e5": {
+            "InputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel",
+              "Product Purchased",
+              "Date of Purchase",
+              "Ticket Subject",
+              "Ticket Description"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e6": {
+            "OutputColumnName": "Ticket Priority",
+            "InputColumnName": "Ticket Priority",
+            "AddKeyValueAnnotationsAsText": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "SdcaMaximumEntropyMulti",
+        "Score": 0.25,
+        "RuntimeInSeconds": 2.144,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e12 * e14",
+          "e0": {
+            "OutputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel"
+            ],
+            "InputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "Product Purchased",
+            "OutputColumnName": "Product Purchased"
+          },
+          "e12": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 0.1,
+            "LabelColumnName": "Ticket Priority",
+            "FeatureColumnName": "Features"
+          },
+          "e14": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnName": "Date of Purchase",
+            "OutputColumnName": "Date of Purchase"
+          },
+          "e3": {
+            "InputColumnName": "Ticket Subject",
+            "OutputColumnName": "Ticket Subject"
+          },
+          "e4": {
+            "InputColumnName": "Ticket Description",
+            "OutputColumnName": "Ticket Description"
+          },
+          "e5": {
+            "InputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel",
+              "Product Purchased",
+              "Date of Purchase",
+              "Ticket Subject",
+              "Ticket Description"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e6": {
+            "OutputColumnName": "Ticket Priority",
+            "InputColumnName": "Ticket Priority",
+            "AddKeyValueAnnotationsAsText": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "SdcaMaximumEntropyMulti",
+        "Score": 0.25,
+        "RuntimeInSeconds": 2.145,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e12 * e14",
+          "e0": {
+            "OutputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel"
+            ],
+            "InputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "Product Purchased",
+            "OutputColumnName": "Product Purchased"
+          },
+          "e12": {
+            "L1Regularization": 1.0825746,
+            "L2Regularization": 0.39909208,
+            "LabelColumnName": "Ticket Priority",
+            "FeatureColumnName": "Features"
+          },
+          "e14": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnName": "Date of Purchase",
+            "OutputColumnName": "Date of Purchase"
+          },
+          "e3": {
+            "InputColumnName": "Ticket Subject",
+            "OutputColumnName": "Ticket Subject"
+          },
+          "e4": {
+            "InputColumnName": "Ticket Description",
+            "OutputColumnName": "Ticket Description"
+          },
+          "e5": {
+            "InputColumnNames": [
+              "Ticket Type",
+              "Ticket Status",
+              "Ticket Channel",
+              "Product Purchased",
+              "Date of Purchase",
+              "Ticket Subject",
+              "Ticket Description"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e6": {
+            "OutputColumnName": "Ticket Priority",
+            "InputColumnName": "Ticket Priority",
+            "AddKeyValueAnnotationsAsText": false
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "OneHotEncoding",
+      "e1": "FeaturizeText",
+      "e2": "FeaturizeText",
+      "e3": "FeaturizeText",
+      "e4": "FeaturizeText",
+      "e5": "Concatenate",
+      "e6": "MapValueToKey",
+      "e7": "FastTreeOva",
+      "e8": "FastForestOva",
+      "e9": "LightGbmMulti",
+      "e10": "LbfgsLogisticRegressionOva",
+      "e11": "LbfgsMaximumEntropyMulti",
+      "e12": "SdcaMaximumEntropyMulti",
+      "e13": "SdcaLogisticRegressionOva",
+      "e14": "MapKeyToValue"
+    },
+    "Schema": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * (e7 + e8 + e9 + e10 + e11 + e12 + e13) * e14",
+    "MetricName": "MacroAccuracy",
+    "ModelFilePath": "C:\\Users\\Harry\\Desktop\\Repos\\MLDotNETPlayground\\MLDotNet\\MLDotNet.Server\\Model\\MLModel.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Tuner": "eci-cfo",
+    "Type": "ClassificationTrainingOption",
+    "TrainingTime": 180,
+    "OptimizeMetric": "MacroAccuracy",
+    "LabelColumn": "Ticket Priority",
+    "AvailableTrainers": [
+      "SDCA",
+      "LBFGS",
+      "LGBM",
+      "FASTTREE",
+      "FASTFOREST"
+    ],
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "TrainValidateSplitValidationOption",
+      "SplitRatio": 0.2
+    }
+  }
+}
